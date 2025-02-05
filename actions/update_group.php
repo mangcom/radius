@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'Session-Timeout' => $_POST['session_timeout'],
         'Mikrotik-Rate-Limit' => strtolower(trim($_POST['rate_limit'])),
         'WISPr-Bandwidth-Max-Up' => $_POST['wispr_up'],
-        'WISPr-Bandwidth-Max-Down' => $_POST['wispr_down']
+        'WISPr-Bandwidth-Max-Down' => $_POST['wispr_down'],
+        'Acct-Interim-Interval' => $_POST['interim-interval']
     ];
 
     try {

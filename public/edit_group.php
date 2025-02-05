@@ -69,38 +69,44 @@ $permissions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     value="<?php echo htmlspecialchars($groupname); ?>" required>
             </div>
             <div class="mb-3">
-                <label>Simultaneous-Use (จำนวนอุปกรณ์ที่ล็อกอินพร้อมกัน):</label>
+                <label>Simultaneous-Use (จำนวนอุปกรณ์ที่ล็อกอินพร้อมกัน n อุปกรณ์):</label>
                 <input type="number" class="form-control" name="simultaneous_use"
                     value="<?php echo getGroupCheck($pdo, $groupname, 'Simultaneous-Use'); ?>" required>
             </div>
             <div class="mb-3">
-                <label>Idle-Timeout (วินาที):</label>
+                <label>Idle-Timeout (ตัดการเชื่อมต่อหากไม่ได้ใช้งานเป็นเวลา n วินาที):</label>
                 <input type="number" class="form-control" name="idle_timeout"
                     value="<?php echo getPermission($permissions, 'Idle-Timeout'); ?>" required>
             </div>
 
             <div class="mb-3">
-                <label>Session-Timeout (วินาที):</label>
+                <label>Session-Timeout (ให้ Login ใหม่ หากเข้าสู่ระบบแล้ว n วินาที):</label>
                 <input type="number" class="form-control" name="session_timeout"
                     value="<?php echo getPermission($permissions, 'Session-Timeout'); ?>" required>
             </div>
 
             <div class="mb-3">
-                <label>Mikrotik-Rate-Limit (Upload/Download kbps เช่น 512k/1m) ตัวพิมพ์เล็ก:</label>
+                <label>Mikrotik-Rate-Limit จำกัดการ Upload/Download (Upload/Download kbps เช่น 512k/1m) ตัวพิมพ์เล็ก:</label>
                 <input type="text" class="form-control" name="rate_limit"
                     value="<?php echo getPermission($permissions, 'Mikrotik-Rate-Limit'); ?>" required>
             </div>
 
             <div class="mb-3">
-                <label>WISPr-Bandwidth-Max-Up (bps: 1Kbps = 1,000 , 1Mbps = 1,000,000):</label>
+                <label>WISPr-Bandwidth-Max-Up จำกัดการ Upload (bps: 1Kbps = 1,000 , 1Mbps = 1,000,000):</label>
                 <input type="number" class="form-control" name="wispr_up"
                     value="<?php echo (int)(getPermission($permissions, 'WISPr-Bandwidth-Max-Up')); ?>" required>
             </div>
 
             <div class="mb-3">
-                <label>WISPr-Bandwidth-Max-Down (bps: 1Kbps = 1,000 , 1Mbps = 1,000,000):</label>
+                <label>WISPr-Bandwidth-Max-Down จำกัดการ Download (bps: 1Kbps = 1,000 , 1Mbps = 1,000,000):</label>
                 <input type="number" class="form-control" name="wispr_down"
                     value="<?php echo (int)(getPermission($permissions, 'WISPr-Bandwidth-Max-Down')); ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Acct-Interim-Interval (ส่งข้อมูลการใช้งานกลับ Radius Server ทุก n วินาที):</label>
+                <input type="number" class="form-control" name="interim-interval"
+                    value="<?php echo (int)(getPermission($permissions, 'Acct-Interim-Interval')); ?>" required>
             </div>
 
             <button type="submit" class="btn btn-success">บันทึก</button>

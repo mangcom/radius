@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ['attribute' => 'Session-Timeout', 'value' => '3600'],
                 ['attribute' => 'Mikrotik-Rate-Limit', 'value' => '10m/10m'],
                 ['attribute' => 'WISPr-Bandwidth-Max-Up', 'value' => '10485760'],
-                ['attribute' => 'WISPr-Bandwidth-Max-Down', 'value' => '10485760']
+                ['attribute' => 'WISPr-Bandwidth-Max-Down', 'value' => '10485760'],
+                ['attribute' => 'Acct-Interim-Interval', 'value' => '300']
             ];
 
             foreach ($default_permissions as $perm) {
